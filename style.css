@@ -1,10 +1,10 @@
 /* ===== RESET ===== */
-html, body {
+body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  background: black;
   overflow: hidden;
+  background: black;
+  font-family: Georgia, serif;
 }
 
 /* ===== HERO CONTAINER ===== */
@@ -20,7 +20,7 @@ html, body {
 .right-image {
   position: absolute;
   top: 0;
-  width: 50vw;
+  width: 100vw;
   height: 100vh;
   object-fit: cover;
   z-index: 2;
@@ -71,18 +71,23 @@ html, body {
   to { opacity: 1; }
 }
 
-/* ===== LEFT CONTENT ===== */
-.left-content {
+/* ===== LEFT CONTENT ===== */.left-content {
   position: absolute;
   left: 8%;
-  bottom: 10vh !important;   /* force override */
-  top: auto !important;      /* remove vertical centering */
-  transform: translateY(40px);
+  bottom: 10vh !important;   /* start closer to bottom */
+  top: auto !important;
+  transform: translateY(30px); /* smaller rise for a subtle float */
   z-index: 5;
   opacity: 0;
   animation: riseContent 2s forwards ease-out;
   animation-delay: 11s;
 }
+
+@keyframes riseContent {
+  from { opacity: 0; transform: translateY(30px); }  /* smaller rise */
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes riseContent {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
