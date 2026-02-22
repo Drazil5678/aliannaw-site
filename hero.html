@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>ali home</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alianna Waggoner</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<style>
+
+/* ===== RESET ===== */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: black;
+  font-family: Georgia, serif;
+}
+
+/* ===== HERO CONTAINER ===== */
+.hero-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ===== SLIDING IMAGES ===== */
+.left-image,
+.right-image {
+  position: absolute;
+  top: 0;
+  width: 50vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 2;
+  animation-duration: 6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+.left-image {
+  left: -50%;
+  animation-name: slideLeft;
+}
+
+.right-image {
+  right: -50%;
+  animation-name: slideRight;
+}
+
+@keyframes slideLeft {
+  0% { left: -50%; opacity: 1; }
+  50% { left: 25%; opacity: 1; }
+  100% { left: 50%; opacity: 0; }
+}
+
+@keyframes slideRight {
+  0% { right: -50%; opacity: 1; }
+  50% { right: 25%; opacity: 1; }
+  100% { right: 50%; opacity: 0; }
+}
+
+/* ===== FINAL IMAGE ===== */
+.final-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0;
+  z-index: 1;
+  animation: fadeInFinal 4s ease-in-out forwards;
+  animation-delay: 6s;
+}
+
+@keyframes fadeInFinal {
+  0% { opacity: 0; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.03); }
+}
+
+/* ===== LEFT CONTENT WRAPPER ===== */
+.left-content {
+  position: absolute;
+  left: 8%;
+  top: 50%;
+  transform: translateY(40px);
+  opacity: 0;
+  z-index: 3;
+  animation: riseContent 2.5s forwards;
+  animation-delay: 9s;
+}
+
+@keyframes riseContent {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(-20%); }
+}
+
+/* ===== TAGLINE ===== */
+.tagline {
+  font-size: 2vw;
+  color: white;
+  letter-spacing: 1px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 5px rgba(255,255,255,0.5); }
+  100% { text-shadow: 0 0 25px rgba(255,255,255,0.9); }
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+  width: 120px;
+  height: 2px;
+  background: rgba(243,158,183,0.6);
+  margin: 25px 0 35px 0;
+  box-shadow: 0 0 10px rgba(243,158,183,0.6);
+}
+
+/* ===== SOCIALS ===== */
+.social-buttons {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.social-btn {
+  color: #f39eb7;
+  font-size: 2.8rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  filter: drop-shadow(0 0 6px rgba(243,158,183,0.5));
+}
+
+.social-btn:hover {
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 20px rgba(243,158,183,0.9))
+          drop-shadow(0 0 30px rgba(243,158,183,0.6));
+}
+
+/* ===== ENTER BUTTON ===== */
+.enter-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  border: 2px solid #f39eb7;
+  border-radius: 40px;
+  color: #f39eb7;
+  text-decoration: none;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(243,158,183,0.5);
+}
+
+.enter-btn:hover {
+  background: #f39eb7;
+  color: black;
+  box-shadow: 0 0 25px rgba(243,158,183,0.9);
+  transform: scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hero-container">
+
+  <img src="https://i.imgur.com/wCpl6QT.jpeg" class="left-image">
+  <img src="https://i.imgur.com/p0zeasW.jpeg" class="right-image">
+  <img src="https://i.imgur.com/aNtsg7v.png" class="final-image">
+
+  <div class="left-content">
+    <div class="tagline">Singer – Actor – Dancer</div>
+    <div class="divider"></div>
+
+    <div class="social-buttons">
+      <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-btn"><i class="fab fa-tiktok"></i></a>
+      <a href="mailto:aliannawaggoner@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <a href="https://aliannaw.com/about" class="enter-btn">ENTER</a>
+  </div>
+
+</div>
+
+</body>
+</html>
+    
+  </body>
+  
+</html>
