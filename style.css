@@ -75,7 +75,7 @@ body {
 .left-content {
   position: absolute;
   left: 8%;
-  bottom: 15vh !important;   /* force override */
+  bottom: 10vh !important;   /* force override */
   top: auto !important;      /* remove vertical centering */
   transform: translateY(40px);
   z-index: 5;
