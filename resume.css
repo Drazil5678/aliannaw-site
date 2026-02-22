@@ -3,7 +3,7 @@ nav {
   top: 0;
   width: 100%;
   background: black;
-  padding: 20px 80px; /* increased left/right padding */
+  padding: 20px 100px; /* increased left/right padding */
   box-shadow: 0 2px 8px rgba(243,158,183,0.5);
   z-index: 1000;
   display: flex;
