@@ -1,120 +1,142 @@
+/* ================= GLOBAL RESET ================= */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #fff;
+  font-family: Georgia, serif;
+  scroll-behavior: smooth;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  display: flex;
+  gap: 40px;
+  padding: 25px 60px;
+  position: sticky;
+  top: 0;
+  background: #000;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #f39eb7;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 80px 40px;
+}
+
+/* ================= SECTION TITLES ================= */
+.section-divider {
+  width: 160px;
+  height: 3px;
+  background: #f39eb7;
+  margin: 60px 0 20px 0;
+  box-shadow: 0 0 15px rgba(243,158,183,0.8);
+}
+
+.section-title {
+  font-size: 2.6rem;
+  margin-bottom: 40px;
+  color: #f39eb7;
+  letter-spacing: 2px;
+}
+
+/* ================= ABOUT ================= */
+.about-section {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1 1 600px;
+  font-size: 1.3rem;
+  line-height: 1.8;
+}
+
+.about-pic {
+  flex: 1 1 500px;
+  max-width: 550px;
+  border-radius: 12px;
+  border: 2px solid white;
+  filter: grayscale(100%);
+  transition: 0.4s ease;
+}
+
+.about-pic:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 35px #f39eb7;
+}
+
+/* ================= EVENTS ================= */
+.event-item {
+  font-size: 1.4rem;
+  line-height: 1.8;
+}
+
+/* ================= ARC GALLERY ================= */
 .arc-gallery {
   position: relative;
   width: 100%;
-  height: 500px;
-  margin: 60px 0;
+  height: 550px;
+  margin-top: 60px;
 }
 
 .arc-gallery img {
   position: absolute;
   bottom: 0;
-  width: 16%;
+  width: 15%;
   max-width: 240px;
-  border-radius: 16px;
+  border-radius: 14px;
   cursor: pointer;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: 0.4s ease;
 }
 
-/* Arc positioning */
-.arc-gallery img:nth-child(1) { left: 2%;  transform: rotate(-30deg); }
-.arc-gallery img:nth-child(2) { left: 15%; transform: rotate(-18deg); }
-.arc-gallery img:nth-child(3) { left: 30%; transform: rotate(-8deg); }
-.arc-gallery img:nth-child(4) { left: 44%; transform: rotate(0deg); z-index:2; }
-.arc-gallery img:nth-child(5) { left: 58%; transform: rotate(8deg); }
-.arc-gallery img:nth-child(6) { left: 72%; transform: rotate(18deg); }
-.arc-gallery img:nth-child(7) { left: 86%; transform: rotate(30deg); }
+.arc-gallery img:nth-child(1) { left: 3%;  transform: rotate(-32deg); }
+.arc-gallery img:nth-child(2) { left: 17%; transform: rotate(-20deg); }
+.arc-gallery img:nth-child(3) { left: 32%; transform: rotate(-8deg); }
+.arc-gallery img:nth-child(4) { left: 45%; transform: rotate(0deg); z-index: 2; }
+.arc-gallery img:nth-child(5) { left: 60%; transform: rotate(8deg); }
+.arc-gallery img:nth-child(6) { left: 75%; transform: rotate(20deg); }
+.arc-gallery img:nth-child(7) { left: 89%; transform: rotate(32deg); }
 
-/* Hover lift */
 .arc-gallery img:hover {
   transform: scale(1.15) rotate(0deg);
   z-index: 10;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.7);
 }
 
-/* ===== MODAL ===== */
-
+/* ================= MODAL ================= */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.92);
+  background: rgba(0,0,0,0.95);
   justify-content: center;
   align-items: center;
-  z-index: 3000;
+  z-index: 2000;
 }
 
 .modal img {
   max-width: 90%;
   max-height: 85%;
-  border-radius: 16px;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.9);
-}
-
-.close {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  font-size: 42px;
-  color: white;
-  cursor: pointer;
-}
-
-/* ===== MOBILE STACK ===== */
-@media(max-width:900px){
-  .arc-gallery {
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .arc-gallery img {
-    position: static;
-    width: 40%;
-    transform: none !important;
-<a id="contact"></a>
-<div class="section-divider"></div>
-<div class="section-title">Contact</div>
-
-<div class="contact-section fade-in">
-
-  <form id="contact-form" action="https://formsubmit.co/aliannawaggoner@gmail.com" method="POST">
-    
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="Alianna Website Inquiry">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_next" value="#">
-
-    <div class="form-field">
-      <input type="text" name="name" required>
-      <label>Name</label>
-    </div>
-
-    <div class="form-field">
-      <input type="email" name="email" required>
-      <label>Email</label>
-    </div>
-
-    <div class="form-field">
-      <textarea name="message" rows="6" required></textarea>
-      <label>Message</label>
-    </div>
-
-    <button type="submit" class="contact-btn">Send Message</button>
-
-    <div class="success-message" id="success-message">
-      Thank you — your message has been sent.
-    </div>
-
-  </form>
-
-</div>
-}
-  .contact-intro {
-  max-width: 700px;
-  margin: 0 0 40px 0;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #ddd;
+  border-radius: 14px;
 }
