@@ -1,42 +1,177 @@
-/* ===== NAV BAR ===== */
+/* ============================= */
+/* GLOBAL STYLES */
+/* ============================= */
 
-}.navbar {
-  display: flex;
-  gap: 40px;
-  padding: 25px 60px;
-  position: sticky;
-  top: 0;
-  background: #000;
-  z-index: 1000;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.navbar a {
-  color: white;
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/* NAVBAR (MATCHES ABOUT PAGE) */
+/* ============================= */
+
+.navbar {
+  width: 100%;
+  background: #000;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #222;
+}
+
+.nav-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 0;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
   text-decoration: none;
-  font-size: 1.2rem;
+  color: #fff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
   letter-spacing: 1px;
   transition: 0.3s ease;
 }
 
-.navbar a:hover {
-  color: #f39eb7;
-}
+.nav-links li a:hover {
+  color: #ff4da6;
 }
 
-/* ===== RESPONSIVE ===== */
-@media screen and (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 12px 30px;
-  }
+/* Hamburger */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  margin: 4px 0;
+  border-radius: 3px;
+}
+
+/* ============================= */
+/* RESUME SECTION */
+/* ============================= */
+
+.resume-section {
+  padding: 100px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.resume-section h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+
+.resume-section h2 {
+  font-size: 1.4rem;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.resume-section h3 {
+  font-size: 1.1rem;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.resume-section p,
+.resume-section li {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.resume-section ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* ============================= */
+/* MOBILE RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 768px) {
+
   .nav-links {
-    display: flex;
-    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #000;
     width: 100%;
-    margin-top: 8px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    display: none;
   }
-  .nav-links a {
-    margin: 6px 0;
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .resume-section {
+    padding: 60px 20px;
+  }
+
+  .resume-section h1 {
+    font-size: 2rem;
+  }
+
+  .resume-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .resume-section p,
+  .resume-section li {
+    font-size: 0.95rem;
   }
 }
