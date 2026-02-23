@@ -1,5 +1,6 @@
 /* ===== NAV BAR ===== */
-.navbar {
+
+}.navbar {
   display: flex;
   gap: 40px;
   padding: 25px 60px;
