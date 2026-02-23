@@ -1,139 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alianna Waggoner – Resume</title>
-
-<style>
-  
-/* ===== RESET ===== */
-body  {<link rel="stylesheet" href="about.css">
-  margin: 0;
-  padding: 0;
-  font-family: Georgia, serif;
-  background-color: black;
-  color: white;
-} 
-
-/* ===== NAV BAR ===== */
-<nav class="navbar">
-  <div class="nav-container">
-    <a href="index.html" class="logo">Alianna W</a>
-
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="resume.html">Resume</a></li>
-          </ul>
-
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-</nav>
-
-/* ===== CONTAINER ===== */
-.container {
-  max-width: 1000px;
-  margin: 100px auto 40px auto; /* extra top margin to clear nav */
-  padding: 40px 20px;
-  position: relative;
-}
-
-/* ===== PHOTO ===== */
-.profile-pic {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  width: 220px; /* slightly larger */
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-  border: 2px solid white;
-}
-
-/* ===== HEADINGS ===== */
-h1, h2 {
-  color: white;
-  margin-bottom: 10px;
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-}
-
-h2 {
-  font-size: 1.8rem;
-  margin-top: 50px;
-  border-bottom: 1px solid #f39eb7;
-  padding-bottom: 5px;
-}
-
-/* ===== SECTION CONTENT ===== */
-.section {
-  margin-bottom: 40px;
-}
-
-.resume-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-
-.resume-table td, 
-.resume-table th {
-  padding: 8px;
-  vertical-align: top;
-}
-
-.resume-table th {
-  text-align: left;
-  color: #f39eb7;
-}
-
-/* ===== PDF DOWNLOAD ===== */
-.pdf-download {
-  display: inline-block;
-  padding: 12px 30px;
-  border: 2px solid #f39eb7;
-  border-radius: 40px;
-  color: #f39eb7;
-  text-decoration: none;
-  font-size: 1.2rem;
-  margin-top: 30px;
-  transition: all 0.3s ease;
-}
-
-.pdf-download:hover {
-  background: #f39eb7;
-  color: black;
-  transform: scale(1.05);
-}
-
-/* ===== RESPONSIVE ===== */
-@media screen and (max-width: 768px) {
-  .profile-pic {
-    position: static;
-    display: block;
-    margin: 0 auto 20px;
-  }
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav a {
-    margin: 40px 0 0 0;
-  }
-}
-</style>
-
+  <meta charset="UTF-8">
+  <title>Resume | Alianna W</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="resume.css">
 </head>
+
 <body>
-/* ===== NAV BAR ===== */
+
+<!-- ================= NAVIGATION ================= -->
+
 <nav class="navbar">
   <div class="nav-container">
     <a href="index.html" class="logo">Alianna W</a>
@@ -142,7 +19,9 @@ h2 {
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="resume.html">Resume</a></li>
-          </ul>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
 
     <div class="hamburger">
       <span></span>
@@ -151,66 +30,61 @@ h2 {
     </div>
   </div>
 </nav>
-<div class="container">
 
-  <img src="https://i.imgur.com/wCpl6QT.jpeg" alt="Alianna Waggoner" class="profile-pic">
+<!-- ================= RESUME SECTION ================= -->
 
-  <h1>Alianna Waggoner</h1>
-  <div class="section">
-    <h2>Stage Experience</h2>
-    <table class="resume-table">
-      <tr>
-        <th>Production</th>
-        <th>Role</th>
-        <th>Theater / Director</th>
-      </tr>
-      <tr><td>Spring Awakening</td><td>Martha</td><td>Eckerd College / Gavin Hawk</td></tr>
-      <tr><td>Children’s Letters to God</td><td>Iris</td><td>Eckerd College / Jaylie Barnes</td></tr>
-      <tr><td>Something Rotten</td><td>Ensemble</td><td>Circle In The Square / Katharine Macleod</td></tr>
-      <tr><td>Blue Moon</td><td>Teacher Y3</td><td>Emerging Writers Residency / Galia Backal</td></tr>
-      <tr><td>English Made Simple</td><td>Loudspeaker Voice</td><td>Dot In The Box / Jeanne Slater</td></tr>
-      <tr><td>Alice in Wonderland</td><td>Cover (Ashleigh, Camille, Margaret, ASM)</td><td>Animus Theater / Jonathan Judge Russo</td></tr>
-      <tr><td>A Midsummer Night's Dream</td><td>Cover (Lysander)</td><td>Circle In The Square / Galia Backal</td></tr>
-      <tr><td>Tracy Letts 12 Hour Play Reading Festival</td><td>Stage Directions Cover</td><td>Circle In The Square / Katharine Macleod</td></tr>
-    </table>
+<section class="resume-section">
+
+  <div class="resume-header">
+    <img src="https://i.imgur.com/8xk6swP.jpeg" alt="Alianna Headshot">
+    <div class="resume-title">
+      <h1>Alianna Waggoner</h1>
+      <p>Vocal Performer | Music Educator | Director</p>
+    </div>
   </div>
 
-  <div class="section">
+  <div class="resume-content">
+
+    <h2>Performance Experience</h2>
+
+    <div class="resume-item">
+      <h3>Lead Vocalist – Jazz & Musical Theatre</h3>
+      <p>Various venues and productions throughout Florida</p>
+    </div>
+
+    <div class="resume-item">
+      <h3>Director – Elementary & Youth Musicals</h3>
+      <p>Directed multiple productions annually including full-length musicals.</p>
+    </div>
+
     <h2>Education</h2>
-    <p>Eckerd College / Circle in the Square Theatre School – Musical Theater BFA (expected 2026), Minor: Italian</p>
-    <p>Acting: Mark Barford, Katharine Macleod, Jacqueline Jacobs, Mark Nelson, Sara Lazarus, Billy Bustamante, Eric William Morris, Benita De Wit</p>
-    <p>Voice/Speech: Dianna Cortez (Linklater), Meredith Lustig (Singing), James Rogers (Singing)</p>
-    <p>Dance/Movement: Joshua Spencer (Jazz, Tap), Hannah Jew (Ballet), Dan Renkin (Unarmed Combat), Brad Lemons (Armed Combat), Nancy Smither (Clown/Improv), Chris Browne Valenzuela (Neutral Mask), Patrick Horn (Character Mask)</p>
+
+    <div class="resume-item">
+      <h3>Bachelor’s Degree – Business</h3>
+      <p>Training in Marketing & Logistics</p>
+    </div>
+
+    <div class="resume-item">
+      <h3>Certifications</h3>
+      <ul>
+        <li>Google Project Management Certificate</li>
+        <li>UX/UI & Web Design Certificates</li>
+      </ul>
+    </div>
+
+    <h2>Teaching Experience</h2>
+
+    <div class="resume-item">
+      <h3>Music Teacher – Hillsborough County Public Schools</h3>
+      <p>25 years teaching K–12 music education.</p>
+    </div>
+
   </div>
 
-  <div class="section">
-    <h2>Special Skills</h2>
-    <p>Vocal Captain, Instruments (Piano, French Horn, Trumpet, Guitar), Music Reading, Swing Dancing, Vocal Coaching, Choreography, Technical Theater (Lighting, Directing), Driver’s License, Audacity Software, Basic Sewing</p>
-  </div>
+</section>
 
-  <div class="section">
-    <h2>Community / Technical Theater</h2>
-    <table class="resume-table">
-      <tr><th>Production</th><th>Role</th><th>Organization</th></tr>
-      <tr><td>Anything Goes</td><td>Musical Director</td><td>Stagelights Performing Arts Center</td></tr>
-      <tr><td>Urinetown</td><td>Musical Director</td><td>Corbett Prep IDS</td></tr>
-      <tr><td>The Best Christmas Pageant Ever</td><td>Musical Director</td><td>Corbett Prep IDS</td></tr>
-      <tr><td>High School Musical</td><td>Musical Director</td><td>Stagelights Performing Arts Center</td></tr>
-      <tr><td>The Parfumerie</td><td>Student Directed Scene – Superior Rating (Perfect Score)</td><td>Florida Thespian – District 9 Competition</td></tr>
-      <tr><td>A Kid Like Jake (Radio Show)</td><td>Director</td><td>Blake High School of the Performing Arts</td></tr>
-      <tr><td>Twisted Tales of Poe (Radio Show)</td><td>Director</td><td>Blake High School of the Performing Arts</td></tr>
-      <tr><td>The Other Room</td><td>Assistant Director</td><td>Florida Academy of Performing Arts</td></tr>
-      <tr><td>The Complete History of Sports Abridged</td><td>Assistant Director</td><td>Blake High School of the Performing Arts</td></tr>
-      <tr><td>The Wizard of Oz</td><td>Choreographer/Stage Manager</td><td>Florida Academy of Performing Arts</td></tr>
-      <tr><td>Rock of Ages Middle School Edition</td><td>Choreographer/Stage Manager</td><td>Florida Academy of Performing Arts</td></tr>
-      <tr><td>G2K Footloose</td><td>Choreographer/Stage Manager</td><td>Florida Academy of Performing Arts</td></tr>
-      <tr><td>Once on This Island, Jr</td><td>Choreographer/Stage Manager</td><td>Florida Academy of Performing Arts</td></tr>
-    </table>
-  </div>
-
-  <a href="Alianna_Waggoner_Resume.pdf" class="pdf-download" target="_blank">Download PDF</a>
-
-</div>
-
+<script src="resume.js"></script>
+</body>
+</html>
 </body>
 </html>
