@@ -1,35 +1,25 @@
 /* ===== NAV BAR ===== */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: black;
-  padding: 12px 50px; /* extra padding to avoid cut off */
-  box-shadow: 0 2px 8px rgba(243,158,183,0.5);
-  z-index: 1000;
+.navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
+  gap: 40px;
+  padding: 25px 60px;
+  position: sticky;
+  top: 0;
+  background: #000;
+  z-index: 1000;
 }
 
-.nav-logo { 
-  font-weight: bold; 
-  font-size: 1.5rem; 
-  color: #f39eb7; 
-}
-
-.nav-links a {
+.navbar a {
   color: white;
   text-decoration: none;
-  margin-left: 30px;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
   transition: 0.3s ease;
 }
 
-.nav-links a:hover { 
-  color: #f39eb7; 
-  text-shadow: 0 0 10px #f39eb7; 
+.navbar a:hover {
+  color: #f39eb7;
+}
 }
 
 /* ===== RESPONSIVE ===== */
