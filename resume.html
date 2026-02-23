@@ -16,33 +16,25 @@ body  {
 } 
 
 /* ===== NAV BAR ===== */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: black;
-  padding: 20px 0px; /* increased left/right padding */
-  box-shadow: 0 2px 8px rgba(243,158,183,0.5);
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 30px;
-  transition: 0.3s ease;
-}
-nav a:hover { 
-  color: #f39eb7; 
-  text-shadow: 0 0 10px #f39eb7; 
-}
-.nav-logo { 
-  font-weight: bold; 
-  font-size: 1.5rem; 
-  color: #f39eb7; 
-}
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">Alianna W</a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
 
 /* ===== CONTAINER ===== */
 .container {
