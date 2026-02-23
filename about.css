@@ -140,3 +140,94 @@ html, body {
   max-height: 85%;
   border-radius: 14px;
 }
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 45px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ================= VIDEO GALLERY ================= */
+.video-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 40px;
+}
+
+.video-gallery iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.video-gallery iframe:hover {
+  box-shadow: 0 0 30px #f39eb7;
+}
+
+/* ================= CONTACT ================= */
+.contact-wrapper {
+  max-width: 800px;
+  margin: auto;
+}
+
+.contact-intro {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 18px;
+  font-size: 1.1rem;
+  background: #111;
+  border: 2px solid #f39eb7;
+  border-radius: 10px;
+  color: white;
+}
+
+.contact-form textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 18px;
+  font-size: 1.2rem;
+  background: transparent;
+  border: 2px solid #f39eb7;
+  border-radius: 50px;
+  color: #f39eb7;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #f39eb7;
+  color: black;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 900px) {
+  .about-section {
+    flex-direction: column;
+  }
+
+  .video-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .arc-gallery {
+    height: 400px;
+  }
+}
