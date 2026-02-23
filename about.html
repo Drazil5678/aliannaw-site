@@ -1,302 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alianna W – About</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alianna W – About</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-<style>
-
-/* ===== BASE ===== */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Georgia, serif;
-  background-color: black;
-  color: white;
-  scroll-behavior: smooth;
-}
-
-/* ===== NAVBAR ===== */
-.navbar {
-  display: flex;
-  justify-content: flex-start;
-  gap: 30px;
-  padding: 20px 50px;
-  position: sticky;
-  top: 0;
-  background-color: black;
-  z-index: 1000;
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: 0.3s;
-}
-
-.navbar a:hover {
-  color: #f39eb7;
-}
-
-/* ===== CONTAINER ===== */
-.container {
-  max-width: 1400px;
-  margin: auto;
-  padding: 60px 20px;
-}
-
-/* ===== SECTION TITLES ===== */
-.section-divider {
-  width: 150px;
-  height: 3px;
-  background: #f39eb7;
-  margin: 60px 0 20px 0;
-}
-
-.section-title {
-  font-size: 2rem;
-  color: #f39eb7;
-  margin-bottom: 40px;
-}
-
-/* ===== ABOUT ===== */
-.about-section {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.about-text {
-  flex: 1;
-  font-size: 1.2rem;
-  line-height: 1.8;
-}
-
-.about-pic {
-  flex: 1;
-  max-width: 500px;
-  width: 100%;
-  border-radius: 12px;
-  border: 2px solid white;
-  filter: grayscale(100%);
-  transition: 0.4s;
-}
-
-.about-pic:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 30px #f39eb7;
-}
-
-/* ===== EVENTS ===== */
-.event-item {
-  font-size: 1.2rem;
-}
-
-/* ===== CAROUSEL GALLERY ===== */
-.carousel-container {
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.carousel {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.carousel img {
-  width: 180px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.4s;
-  border: 2px solid #f39eb7;
-}
-
-.carousel img:hover {
-  transform: scale(1.1);
-}
-
-/* ===== MODAL ===== */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.modal img {
-  max-width: 90%;
-  max-height: 85%;
-  border-radius: 10px;
-}
-
-.close {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  font-size: 40px;
-  cursor: pointer;
-}
-
-/* ===== VIDEO GALLERY ===== */
-.video-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 30px;
-}
-
-.video-gallery iframe {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border-radius: 10px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){
-  .about-section {
-    flex-direction: column;
-  }
-}
-
-</style>
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="about.css">
 </head>
 
 <body>
 
-<div class="navbar">
+<!-- ================= NAVIGATION ================= -->
+<nav class="navbar">
   <a href="index.html">Home</a>
   <a href="resume.html">Resume</a>
   <a href="#about">About</a>
   <a href="#events">Upcoming Events</a>
   <a href="#gallery">Gallery</a>
   <a href="#videos">Videos</a>
-</div>
+  <a href="#contact">Contact</a>
+</nav>
 
 <div class="container">
 
-<a id="about"></a>
-<div class="section-divider"></div>
-<div class="section-title">About</div>
-<div class="about-section">
-  <div class="about-text">
-    <p>Welcome to the world of Alianna – a passionate singer, actress, and performer. Originally from Maine and now based in Tampa Bay and New York City, she is studying Musical Theater at Circle in the Square Theatre School, earning her BFA in 2026.</p>
-    <p>Her work spans Shakespeare, political theater, and musical theatre, with a reputation for depth, professionalism, and strong vocal leadership.</p>
-  </div>
-  <img src="https://i.imgur.com/wCpl6QT.jpeg" class="about-pic">
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="section-divider"></div>
+    <h2 class="section-title">About</h2>
+
+    <div class="about-section">
+      <div class="about-text">
+        <p>
+          Welcome to the world of Alianna – a passionate singer, actress, and performer.
+          Originally from Maine and now based in Tampa Bay and New York City,
+          Alianna is studying Musical Theater at Circle in the Square Theatre School
+          on Broadway, on track to earn her BFA in 2026.
+        </p>
+
+        <p>
+          Her performance journey includes Shakespeare, contemporary political theatre,
+          and musical theatre, bringing characters to life with heart, depth,
+          and vocal strength. Known for professionalism, leadership,
+          and emotional authenticity.
+        </p>
+      </div>
+
+      <img src="https://i.imgur.com/wCpl6QT.jpeg"
+           alt="Alianna Waggoner"
+           class="about-pic">
+    </div>
+  </section>
+
+  <!-- ================= EVENTS ================= -->
+  <section id="events">
+    <div class="section-divider"></div>
+    <h2 class="section-title">Upcoming Events</h2>
+
+    <div class="events-section">
+      <div class="event-item">
+        <strong>Industry Showcase</strong><br>
+        Circle in the Square Theatre School<br>
+        March 23rd – 4:00 PM & 7:00 PM
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PHOTO GALLERY ================= -->
+  <section id="gallery">
+    <div class="section-divider"></div>
+    <h2 class="section-title">Photo Gallery</h2>
+
+    <div class="arc-gallery">
+      <img src="https://i.imgur.com/8xk6swP.jpeg">
+      <img src="https://i.imgur.com/6Ly4dQ5.jpeg">
+      <img src="https://i.imgur.com/hu5ThxG.png">
+      <img src="https://i.imgur.com/tdJ0tXo.png">
+      <img src="https://i.imgur.com/p0zeasW.jpeg">
+      <img src="https://i.imgur.com/v5OIJRA.jpeg">
+      <img src="https://i.imgur.com/A3zuyu1.png">
+    </div>
+  </section>
+
 </div>
 
-<a id="events"></a>
-<div class="section-divider"></div>
-<div class="section-title">Upcoming Events</div>
-<div class="event-item">
-  <strong>Industry Showcase:</strong> March 23rd – 4:00 PM & 7:00 PM  
-  Circle in the Square Theatre School
-</div>
-
-<a id="gallery"></a>
-<div class="section-divider"></div>
-<div class="section-title">Photo Gallery</div>
-
-<div class="arc-gallery">
-  <img src="https://i.imgur.com/8xk6swP.jpeg">
-  <img src="https://i.imgur.com/6Ly4dQ5.jpeg">
-  <img src="https://i.imgur.com/hu5ThxG.png">
-  <img src="https://i.imgur.com/tdJ0tXo.png">
-  <img src="https://i.imgur.com/p0zeasW.jpeg">
-  <img src="https://i.imgur.com/v5OIJRA.jpeg">
-  <img src="https://i.imgur.com/A3zuyu1.png">
-</div>
-
+<!-- ================= MODAL ================= -->
 <div class="modal" id="modal">
   <span class="close" id="close">&times;</span>
   <img id="modal-img">
 </div>
 
+<div class="container">
 
-<a id="videos"></a>
-<div class="section-divider"></div>
-<div class="section-title">Videos</div>
-<div class="video-gallery">
-  <iframe src="https://www.youtube.com/embed/aCkYWnxyirw" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/P9pPvcmH76Q" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/wjPJh_G7rGo" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/5VAxddKVyNg" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/5sKTByFaM50" allowfullscreen></iframe>
-</div>
-<a id="contact"></a>
-  <p class="contact-intro">
-For bookings, collaborations, or industry inquiries, please complete the form below.
-</p>
-<div class="section-divider"></div>
-<div class="section-title">Contact</div>
+  <!-- ================= VIDEOS ================= -->
+  <section id="videos">
+    <div class="section-divider"></div>
+    <h2 class="section-title">Videos</h2>
 
-<div class="contact-section fade-in">
-<a id="contact"></a>
-  <p class="contact-intro">
-For bookings, collaborations, or industry inquiries, please complete the form below.
-</p>
-  <form id="contact-form" action="https://formsubmit.co/aliannawaggoner@gmail.com" method="POST">
-    
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="Alianna Website Inquiry">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_next" value="#">
-
-    <div class="form-field">
-      <input type="text" name="name" required>
-      <label>Name</label>
+    <div class="video-gallery">
+      <iframe src="https://www.youtube.com/embed/aCkYWnxyirw" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/P9pPvcmH76Q" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/wjPJh_G7rGo" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/5VAxddKVyNg" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/5sKTByFaM50" allowfullscreen></iframe>
     </div>
+  </section>
 
-    <div class="form-field">
-      <input type="email" name="email" required>
-      <label>Email</label>
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="section-divider"></div>
+    <h2 class="section-title">Contact</h2>
+
+    <div class="contact-wrapper">
+      <p class="contact-intro">
+        For collaborations, bookings, auditions, or general inquiries,
+        please feel free to reach out.
+      </p>
+
+      <form action="https://formsubmit.co/aliannawaggoner@gmail.com" method="POST" class="contact-form">
+        <input type="hidden" name="_captcha" value="false">
+
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
     </div>
-
-    <div class="form-field">
-      <textarea name="message" rows="6" required></textarea>
-      <label>Message</label>
-    </div>
-
-    <button type="submit" class="contact-btn">Send Message</button>
-
-    <div class="success-message" id="success-message">
-      Thank you — your message has been sent.
-    </div>
-
-  </form>
+  </section>
 
 </div>
 
-</div>
+<!-- ================= JS ================= -->
+<script src="about.js"></script>
 
-<script>
-const form = document.getElementById('contact-form');
-const successMessage = document.getElementById('success-message');
-
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const formData = new FormData(form);
-
-  fetch(form.action, {
-    method: 'POST',
-    body: formData
-  }).then(response => {
-    form.reset();
-    successMessage.style.display = 'block';
-  }).catch(error => {
-    alert("There was an error sending the message.");
-  });
-});
-</script>
+</body>
+</html>
 </body>
 </html>
