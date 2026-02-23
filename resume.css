@@ -1,180 +1,99 @@
-/* ================= GLOBAL ================= */
-
-* {
+ {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   background-color: #000;
   color: #fff;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
-/* ================= NAVBAR ================= */
-
+/* ===== NAVBAR ===== */
 .navbar {
-  width: 100%;
-  background: #000;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
   padding: 20px 0;
-  border-bottom: 1px solid #222;
   position: sticky;
   top: 0;
+  background-color: #000;
   z-index: 1000;
 }
 
-.nav-container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.logo {
-  position: absolute;
-  left: 0;
-  text-decoration: none;
+.navbar a {
   color: white;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 40px;
-}
-
-.nav-links li a {
   text-decoration: none;
-  color: white;
-  letter-spacing: 1px;
-  transition: 0.3s ease;
-}
-
-.nav-links li a:hover {
-  color: #ff4da6;
-}
-
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  position: absolute;
-  right: 0;
-}
-
-.hamburger span {
-  height: 3px;
-  width: 25px;
-  background: white;
-  margin: 4px 0;
-  border-radius: 3px;
-}
-
-/* ================= RESUME ================= */
-
-.resume-section {
-  max-width: 1000px;
-  margin: 100px auto;
-  padding: 0 20px 100px;
-}
-
-/* HEADER AREA */
-
-.resume-header {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  margin-bottom: 80px;
-  flex-wrap: wrap;
-}
-
-.resume-header img {
-  width: 220px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-.resume-title h1 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-}
-
-.resume-title p {
   font-size: 1.2rem;
-  color: #ccc;
+  transition: color 0.3s;
 }
 
-/* CONTENT */
-
-.resume-content h2 {
-  font-size: 1.6rem;
-  margin-bottom: 20px;
-  margin-top: 60px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 8px;
+.navbar a:hover {
+  color: #f39eb7;
 }
 
-.resume-item {
-  margin-bottom: 25px;
+/* ===== RESUME CONTAINER ===== */
+.resume-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
 }
 
-.resume-item h3 {
+/* HEADINGS */
+.resume-container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.resume-subtitle {
+  text-align: center;
+  margin-bottom: 30px;
   font-size: 1.1rem;
-  margin-bottom: 5px;
 }
 
-.resume-item p,
-.resume-item li {
+.resume-subtitle a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.resume-container h2 {
+  font-size: 1.8rem;
+  margin: 30px 0 15px 0;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 5px;
+}
+
+/* PARAGRAPHS & LISTS */
+.resume-container p {
+  font-size: 1rem;
+  margin-bottom: 10px;
   color: #ccc;
 }
 
-.resume-item ul {
-  margin-left: 20px;
-  margin-top: 5px;
+.resume-container strong {
+  color: #fff;
 }
 
-/* ================= MOBILE ================= */
+/* HR */
+hr {
+  border: 1px solid #fff;
+  margin: 25px 0;
+}
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
-
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: #000;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
-    display: none;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .resume-header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .resume-header img {
-    width: 180px;
-  }
-
-  .resume-title h1 {
+  .resume-container h1 {
     font-size: 2rem;
+  }
+
+  .resume-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .resume-subtitle {
+    font-size: 1rem;
   }
 }
