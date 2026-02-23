@@ -129,7 +129,7 @@ html, body {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.95);
+  background: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
   z-index: 2000;
@@ -144,8 +144,8 @@ html, body {
 .close {
   position: absolute;
   top: 30px;
-  right: 50px;
-  font-size: 45px;
+  right: 40px;
+  font-size: 42px;
   color: white;
   cursor: pointer;
 }
