@@ -11,26 +11,36 @@ html, body {
   font-family: Georgia, serif;
   scroll-behavior: smooth;
 }
+{
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+
+
 
 /* ================= NAVBAR ================= */
 .navbar {
   display: flex;
-  gap: 40px;
-  padding: 25px 60px;
-  position: sticky;
-  top: 0;
-  background: #000;
-  z-index: 1000;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
+  background: #111;
 }
 
 .navbar a {
   color: white;
   text-decoration: none;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  transition: 0.3s ease;
-}
-
+  font-size: 1rem; }
+ 
 .navbar a:hover {
   color: #f39eb7;
 }
