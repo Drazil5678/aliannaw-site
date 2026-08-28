@@ -21,10 +21,10 @@ body {
 
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 15px;
-  padding: 18px;
+  padding: 18px 35px;
   background: #111;
   position: sticky;
   top: 0;
@@ -32,7 +32,7 @@ body {
 }
 
 .navbar a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   font-size: 1rem;
   transition: 0.3s ease;
@@ -56,9 +56,9 @@ body {
 .section-divider {
   width: 140px;
   height: 3px;
-  background: #cdffd8;
+  background: #94b9ff;
   margin: 50px 0 20px;
-  box-shadow: 0 0 12px rgba(243,158,183,0.7);
+  box-shadow: 0 0 12px rgba(148, 185, 255, 0.7);
 }
 
 .section-title {
@@ -66,6 +66,7 @@ body {
   margin-bottom: 35px;
   color: #94b9ff;
   letter-spacing: 2px;
+  text-shadow: 0 0 12px rgba(148, 185, 255, 0.4);
 }
 
 /* ================= ABOUT ================= */
@@ -82,13 +83,14 @@ body {
   flex: 1 1 400px;
   font-size: 1.2rem;
   line-height: 1.8;
+  color: #ffffff;
 }
 
 .about-pic {
   width: 100%;
   max-width: 450px;
   border-radius: 14px;
-  border: 2px solid white;
+  border: 2px solid #94b9ff;
   filter: grayscale(100%);
   transition: 0.4s ease;
 }
@@ -103,6 +105,11 @@ body {
 .event-item {
   font-size: 1.2rem;
   line-height: 1.8;
+  color: #ffffff;
+}
+
+.event-item strong {
+  color: #94b9ff;
 }
 
 /* ================= GALLERY ================= */
@@ -118,12 +125,14 @@ body {
   height: auto;
   display: block;
   border-radius: 12px;
+  border: 2px solid transparent;
   transition: 0.3s ease;
 }
 
 .arc-gallery img:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(243,158,183,0.6);
+  border-color: #94b9ff;
+  box-shadow: 0 0 20px rgba(148, 185, 255, 0.6);
 }
 
 /* ================= VIDEOS ================= */
@@ -137,11 +146,13 @@ body {
 .video-gallery iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 12px;
+  transition: 0.3s ease;
 }
 
 .video-gallery iframe:hover {
+  border-color: #94b9ff;
   box-shadow: 0 0 20px #94b9ff;
 }
 
@@ -155,7 +166,9 @@ body {
 .contact-intro {
   text-align: center;
   font-size: 1.2rem;
+  line-height: 1.7;
   margin-bottom: 30px;
+  color: #ffffff;
 }
 
 .contact-form {
@@ -169,10 +182,16 @@ body {
   width: 100%;
   padding: 16px;
   font-size: 1rem;
+  font-family: Georgia, serif;
   background: #111;
   border: 2px solid #94b9ff;
   border-radius: 10px;
-  color: white;
+  color: #ffffff;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #cccccc;
 }
 
 .contact-form textarea {
@@ -183,6 +202,7 @@ body {
 .contact-form button {
   padding: 16px;
   font-size: 1.1rem;
+  font-family: Georgia, serif;
   background: transparent;
   border: 2px solid #94b9ff;
   border-radius: 40px;
@@ -193,7 +213,8 @@ body {
 
 .contact-form button:hover {
   background: #94b9ff;
-  color: black;
+  color: #000000;
+  box-shadow: 0 0 20px rgba(148, 185, 255, 0.6);
 }
 
 /* ================= MODAL ================= */
@@ -202,7 +223,7 @@ body {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0, 0, 0, 0.9);
   justify-content: center;
   align-items: center;
   z-index: 2000;
@@ -212,6 +233,8 @@ body {
   max-width: 90%;
   max-height: 85%;
   border-radius: 12px;
+  border: 2px solid #94b9ff;
+  box-shadow: 0 0 35px rgba(148, 185, 255, 0.5);
 }
 
 .close {
@@ -219,8 +242,13 @@ body {
   top: 20px;
   right: 30px;
   font-size: 42px;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.close:hover {
+  color: #94b9ff;
 }
 
 /* ================= MOBILE ================= */
@@ -248,15 +276,53 @@ body {
 
   .about-text {
     font-size: 1.05rem;
+    text-align: left;
+  }
+
+  .about-pic {
+    max-width: 100%;
   }
 
   .navbar {
+    justify-content: flex-start;
     gap: 10px;
-    padding: 15px 10px;
+    padding: 15px 12px;
   }
 
   .navbar a {
     font-size: 0.9rem;
+  }
+
+  .video-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .event-item {
+    font-size: 1.05rem;
+  }
+
+}
+
+/* ================= SMALL PHONES ================= */
+
+@media (max-width: 480px) {
+
+  .navbar {
+    gap: 8px;
+    padding: 12px 10px;
+  }
+
+  .navbar a {
+    font-size: 0.82rem;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.7;
   }
 
   .video-gallery {
