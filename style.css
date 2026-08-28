@@ -107,7 +107,7 @@ body {
 .divider {
   width: 180px;
   height: 2px;
-  background: #f39eb7;
+  background: #94b9ff;
   margin: 35px 0 50px 0;
   box-shadow: 0 0 15px rgba(243,158,183,0.7);
 }
@@ -120,7 +120,7 @@ body {
 }
 
 .social-btn {
-  color: #f39eb7;
+  color: #94b9ff;
   font-size: 4rem;
   transition: all 0.4s ease;
   text-decoration: none;
@@ -135,9 +135,9 @@ body {
 .enter-btn {
   display: inline-block;
   padding: 24px 70px;
-  border: 3px solid #f39eb7;
+  border: 3px solid #94b955;
   border-radius: 60px;
-  color: #f39eb7;
+  color: #94b9ff;
   text-decoration: none;
   font-size: 1.8rem;
   letter-spacing: 3px;
@@ -145,7 +145,7 @@ body {
 }
 
 .enter-btn:hover {
-  background: #f39eb7;
+  background: #cdffd8;
   color: black;
   box-shadow: 0 0 30px rgba(243,158,183,0.9);
 }
