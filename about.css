@@ -39,7 +39,7 @@ body {
 }
 
 .navbar a:hover {
-  color: #f39eb7;
+  color: #94b9ff;
 }
 
 /* ================= CONTAINER ================= */
@@ -64,7 +64,7 @@ body {
 .section-title {
   font-size: 2.5rem;
   margin-bottom: 35px;
-  color: #f39eb7;
+  color: #94b9ff;
   letter-spacing: 2px;
 }
 
@@ -95,7 +95,7 @@ body {
 
 .about-pic:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 25px #f39eb7;
+  box-shadow: 0 0 25px #94b9ff;
 }
 
 /* ================= EVENTS ================= */
@@ -186,13 +186,13 @@ body {
   background: transparent;
   border: 2px solid #94b9ff;
   border-radius: 40px;
-  color: #94b955;
+  color: #94b9ff;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
 .contact-form button:hover {
-  background: #f39eb7;
+  background: #94b9ff;
   color: black;
 }
 
