@@ -1,131 +1,623 @@
+/* =========================================================
+   ALIANNA WAGGONER — RESUME
+   BLACK / WHITE / SILVER / BLUE THEME
+   ========================================================= */
+
+
+/* =========================
+   GLOBAL RESET
+   ========================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #000;
-  color: #fff;
-  line-height: 1.6;
+html {
+  scroll-behavior: smooth;
 }
 
-/* NAVBAR */
-/* NAVBAR - left aligned */
+body {
+  font-family: Arial, sans-serif;
+  background: #000000;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+
+/* =========================
+   NAVBAR
+   ========================= */
+
 .navbar {
   display: flex;
-  justify-content: flex-start; /* changed from center to left */
-  gap: 30px;
-  padding: 20px 50px; /* optional: add horizontal padding */
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 15px;
+
+  padding: 18px 35px;
+
   position: sticky;
   top: 0;
-  background-color: #000;
+
+  background: #111111;
+
+  border-bottom: 1px solid rgba(148, 185, 255, 0.25);
+
   z-index: 1000;
 }
 
 .navbar a {
-  color: white;
+  color: #ffffff;
+
   text-decoration: none;
-  font-size: 1.2rem;
-  transition: color 0.3s;
+
+  font-size: 1rem;
+
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
 }
 
 .navbar a:hover {
-  color: #f39eb7;
+  color: #94b9ff;
+
+  text-shadow:
+    0 0 8px rgba(148, 185, 255, 0.8),
+    0 0 18px rgba(148, 185, 255, 0.4);
 }
 
-/* RESUME CONTAINER */
+
+/* =========================
+   RESUME CONTAINER
+   ========================= */
+
 .resume-container {
-  max-width: 900px;
-  margin: 50px auto;
-  padding: 0 20px;
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 60px auto;
+
+  padding: 0 30px;
 }
 
-/* HEADER */
+
+/* =========================
+   HEADER
+   ========================= */
+
 .resume-header {
   display: flex;
+
   align-items: center;
-  gap: 30px;
-  margin-bottom: 40px;
+
+  gap: 35px;
+
+  margin-bottom: 45px;
+
   flex-wrap: wrap;
 }
 
+
+/* =========================
+   HEADSHOT
+   ========================= */
+
 .resume-headshot {
-  width: 150px;
-  border-radius: 10px;
-  border: 2px solid #f39eb7;
+  width: 170px;
+  height: auto;
+
+  border-radius: 12px;
+
+  border: 2px solid transparent;
+
+  /*
+     Silver gradient border
+  */
+
+  background:
+    linear-gradient(#000, #000) padding-box,
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #bfc3c9,
+      #777d86,
+      #ffffff,
+      #8e949d
+    ) border-box;
+
+  box-shadow:
+    0 0 12px rgba(148, 185, 255, 0.25),
+    0 10px 30px rgba(0, 0, 0, 0.7);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.resume-headshot:hover {
+  transform: scale(1.03);
+
+  box-shadow:
+    0 0 20px rgba(148, 185, 255, 0.7),
+    0 0 40px rgba(148, 185, 255, 0.25),
+    0 15px 35px rgba(0, 0, 0, 0.8);
+}
+
+
+/* =========================
+   HEADER TEXT
+   ========================= */
+
+.resume-header-text {
+  flex: 1;
+  min-width: 250px;
 }
 
 .resume-header-text h1 {
-  font-size: 2.5rem;
-  color: #f39eb7;
+  font-size: 2.8rem;
+
+  color: #94b9ff;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 8px;
+
+  text-shadow:
+    0 0 12px rgba(148, 185, 255, 0.35);
 }
 
 .resume-header-text p {
   font-size: 1.1rem;
+
+  color: #ffffff;
+
+  line-height: 1.7;
 }
 
-/* DIVIDERS */
+
+/* =========================
+   DIVIDERS
+   ========================= */
+
 .divider {
-  border: 1px solid #f39eb7;
-  margin: 30px 0;
+  height: 2px;
+
+  border: none;
+
+  margin: 35px 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #777d86,
+      #ffffff,
+      #94b9ff,
+      #ffffff,
+      #777d86,
+      transparent
+    );
+
+  box-shadow:
+    0 0 10px rgba(148, 185, 255, 0.35);
 }
 
-/* TABLES */
+
+/* =========================
+   SECTION HEADINGS
+   ========================= */
+
+h2 {
+  color: #94b9ff;
+
+  font-size: 1.9rem;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 18px;
+
+  text-shadow:
+    0 0 10px rgba(148, 185, 255, 0.3);
+}
+
+
+/* =========================
+   TABLES
+   ========================= */
+
 .resume-table {
   width: 100%;
+
   border-collapse: collapse;
-  margin-bottom: 20px;
+
+  margin-bottom: 30px;
+
+  background: rgba(255, 255, 255, 0.015);
 }
+
+
+/* TABLE CELLS */
 
 .resume-table td {
-  padding: 8px 10px;
+  padding: 12px 15px;
+
   vertical-align: top;
-  border-left: 2px solid #f39eb7;
-  border-bottom: 1px solid #444;
+
+  border-bottom: 1px solid #333333;
+
+  color: #ffffff;
 }
+
+
+/* LEFT COLUMN */
 
 .resume-table td:first-child {
+  width: 28%;
+
   font-weight: bold;
-  color: #f39eb7;
-  width: 25%;
+
+  color: #94b9ff;
+
+  border-left: 3px solid transparent;
+
+  /*
+     Silver-to-blue gradient border
+  */
+
+  border-image:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #9da3aa,
+      #94b9ff
+    ) 1;
 }
 
-/* HEADINGS */
-h2 {
-  color: #f39eb7;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
+
+/* RIGHT COLUMN */
+
+.resume-table td:nth-child(2) {
+  color: #ffffff;
 }
 
-/* SPECIAL SKILLS */
+
+/* TABLE HOVER */
+
+.resume-table tr {
+  transition:
+    background 0.25s ease;
+}
+
+.resume-table tr:hover {
+  background: rgba(148, 185, 255, 0.06);
+}
+
+
+/* =========================
+   SPECIAL SKILLS
+   ========================= */
+
 .resume-skills {
   list-style: none;
-  margin-bottom: 30px;
+
+  margin-bottom: 35px;
+
+  padding: 0;
 }
 
 .resume-skills li {
-  margin-bottom: 8px;
-  color: #ccc;
+  margin-bottom: 10px;
+
+  color: #ffffff;
+
+  padding-left: 20px;
+
+  position: relative;
 }
 
-/* RESPONSIVE */
+
+/* BLUE BULLET */
+
+.resume-skills li::before {
+  content: "◆";
+
+  position: absolute;
+
+  left: 0;
+
+  color: #94b9ff;
+
+  font-size: 0.65rem;
+
+  top: 4px;
+
+  text-shadow:
+    0 0 8px rgba(148, 185, 255, 0.7);
+}
+
+
+/* =========================
+   GENERAL RESUME TEXT
+   ========================= */
+
+.resume-container p {
+  color: #ffffff;
+}
+
+.resume-container strong {
+  color: #ffffff;
+}
+
+
+/* =========================
+   LINKS
+   ========================= */
+
+.resume-container a {
+  color: #94b9ff;
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+.resume-container a:hover {
+  color: #ffffff;
+
+  text-shadow:
+    0 0 10px rgba(148, 185, 255, 0.8);
+}
+
+
+/* =========================
+   DOWNLOAD PDF BUTTON
+   ========================= */
+
+.download-button {
+  display: inline-block;
+
+  padding: 15px 38px;
+
+  margin-top: 20px;
+
+  border: 2px solid transparent;
+
+  border-radius: 40px;
+
+  /*
+     Silver gradient border
+  */
+
+  background:
+    linear-gradient(#000000, #000000) padding-box,
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #c7cbd1,
+      #777d86,
+      #ffffff,
+      #9da3aa
+    ) border-box;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 1.05rem;
+
+  letter-spacing: 1.5px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* BUTTON HOVER */
+
+.download-button:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #94b9ff,
+      #6f9cf0
+    );
+
+  color: #000000;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 15px rgba(148, 185, 255, 0.7),
+    0 0 30px rgba(148, 185, 255, 0.35);
+}
+
+
+/* =========================
+   FOOTER / DOWNLOAD AREA
+   ========================= */
+
+.resume-download {
+  text-align: center;
+
+  margin-top: 50px;
+
+  padding-top: 35px;
+
+  border-top: 1px solid transparent;
+
+  border-image:
+    linear-gradient(
+      90deg,
+      transparent,
+      #777d86,
+      #ffffff,
+      #94b9ff,
+      #ffffff,
+      #777d86,
+      transparent
+    ) 1;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
 @media (max-width: 768px) {
+
+  .navbar {
+    justify-content: flex-start;
+
+    gap: 10px;
+
+    padding: 15px 12px;
+  }
+
+  .navbar a {
+    font-size: 0.9rem;
+  }
+
+
+  .resume-container {
+    margin: 40px auto;
+
+    padding: 0 18px;
+  }
+
+
   .resume-header {
     flex-direction: column;
-    align-items: center;
+
+    text-align: center;
+
+    gap: 20px;
   }
+
 
   .resume-headshot {
-    width: 120px;
+    width: 140px;
   }
 
-  h2 {
-    font-size: 1.5rem;
-  }
 
   .resume-header-text h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+  }
+
+
+  .resume-header-text p {
+    font-size: 1rem;
+  }
+
+
+  h2 {
+    font-size: 1.55rem;
+  }
+
+
+  /*
+     Make resume tables easier to read
+     on smaller screens.
+  */
+
+  .resume-table {
+    font-size: 0.95rem;
+  }
+
+  .resume-table td {
+    padding: 10px 8px;
+  }
+
+  .resume-table td:first-child {
+    width: 35%;
+  }
+
+
+  .download-button {
+    padding: 14px 28px;
+
+    font-size: 1rem;
+  }
+}
+
+
+/* =========================
+   SMALL PHONES
+   ========================= */
+
+@media (max-width: 480px) {
+
+  .navbar {
+    gap: 8px;
+
+    padding: 12px 10px;
+  }
+
+  .navbar a {
+    font-size: 0.82rem;
+  }
+
+
+  .resume-container {
+    padding: 0 14px;
+  }
+
+
+  .resume-header-text h1 {
+    font-size: 1.9rem;
+  }
+
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+
+  /*
+     Stack table information
+     when the screen gets very narrow.
+  */
+
+  .resume-table,
+  .resume-table tbody,
+  .resume-table tr,
+  .resume-table td {
+    display: block;
+
+    width: 100%;
+  }
+
+
+  .resume-table td:first-child {
+    border-left: none;
+
+    border-bottom: none;
+
+    padding-bottom: 3px;
+
+    padding-top: 12px;
+  }
+
+
+  .resume-table td:nth-child(2) {
+    padding-top: 3px;
+
+    padding-bottom: 12px;
+  }
+
+
+  .download-button {
+    width: 100%;
+
+    text-align: center;
   }
 }
