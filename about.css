@@ -220,279 +220,200 @@ body {
    PHOTO GALLERY
 ========================================================= */
 
-/*
-   IMPORTANT:
-   These rules control the SIZE of the gallery images.
-*/
+   ========================= */
 
 .gallery {
-
-  --size: 115px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 30px auto 80px;
+  padding: 20px;
 
   display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 
-  grid-template-columns:
-    repeat(6, var(--size));
-
-  grid-auto-rows:
-    var(--size);
-
-  gap: 8px;
-
-  justify-content: center;
-
-  align-items: start;
-
-  margin: 20px auto 80px;
-
-  width: max-content;
-
-  max-width: 100%;
+  align-items: center;
+  justify-items: center;
 }
 
-
+/* Normal thumbnail size */
 .gallery img {
-
-  width: calc(var(--size) * 2);
-
-  height: calc(var(--size) * 2);
+  width: 100%;
+  max-width: 240px;
+  height: 180px;
 
   object-fit: cover;
 
-  display: block;
+  border-radius: 10px;
+  border: 2px solid #94b9ff;
 
   cursor: pointer;
 
-  border-radius: 5px;
-
-  border: 2px solid #222;
-
-  box-shadow:
-    0 0 4px rgba(255,255,255,0.2);
-
   transition:
-    transform 0.25s ease,
-    filter 0.25s ease,
-    box-shadow 0.25s ease;
-
-  grid-column: auto / span 2;
+    transform 0.35s ease,
+    filter 0.35s ease,
+    box-shadow 0.35s ease;
 
   position: relative;
+  z-index: 1;
 }
 
-
-/* Center every fifth image */
-
-.gallery img:nth-child(5n - 1) {
-
-  grid-column: 2 / span 2;
-}
-
-
-/* Dim other images when hovering */
-
+/* Darken other photos when one is hovered */
 .gallery:has(img:hover) img:not(:hover) {
-
-  filter:
-    brightness(0.5)
-    contrast(0.8);
+  filter: brightness(0.45);
 }
 
-
-/* Hover */
-
+/* Enlarged photo */
 .gallery img:hover {
+  transform: scale(3);
+  z-index: 100;
 
-  transform: scale(1.04);
-
-  z-index: 10;
-
-  border-color: #94b9ff;
+  filter: brightness(1);
 
   box-shadow:
-    0 0 20px rgba(148,185,255,0.7);
+    0 0 30px rgba(148, 185, 255, 0.8),
+    0 20px 60px rgba(0, 0, 0, 0.8);
 }
 
 
-
-/* =========================================================
-   LIGHTBOX
-========================================================= */
+/* =========================
+   GALLERY LIGHTBOX
+   ========================= */
 
 .gallery-modal {
-
   display: none;
 
   position: fixed;
-
   inset: 0;
 
   width: 100%;
-
   height: 100%;
 
-  background:
-    rgba(0,0,0,0.94);
+  background: rgba(0, 0, 0, 0.94);
 
   z-index: 9999;
 
   align-items: center;
-
   justify-content: center;
 
   padding: 40px;
 }
 
-
 .gallery-modal.active {
-
   display: flex;
-
-  animation:
-    galleryFadeIn 0.25s ease;
 }
 
 
+/* =========================
+   LIGHTBOX CONTENT
+   ========================= */
+
 .gallery-lightbox {
-
   max-width: 90vw;
-
   max-height: 90vh;
 
   display: flex;
-
   flex-direction: column;
 
   align-items: center;
-
   justify-content: center;
 }
 
-
 .gallery-lightbox img {
-
   max-width: 80vw;
-
-  max-height: 72vh;
+  max-height: 75vh;
 
   width: auto;
-
   height: auto;
 
   object-fit: contain;
 
   border: 2px solid #94b9ff;
-
   border-radius: 8px;
 
   box-shadow:
-    0 0 30px rgba(148,185,255,0.35),
-    0 20px 60px rgba(0,0,0,0.8);
+    0 0 30px rgba(148, 185, 255, 0.35),
+    0 20px 60px rgba(0, 0, 0, 0.8);
 }
 
 
-
-/* =========================================================
-   LIGHTBOX CAPTION
-========================================================= */
+/* =========================
+   CAPTION
+   ========================= */
 
 .gallery-caption {
-
   width: 100%;
-
   text-align: center;
 
   margin-top: 18px;
 
-  color: #ffffff;
+  color: white;
+  font-family: Georgia, serif;
 }
 
-
 #galleryTitle {
-
   font-size: 1.35rem;
-
   color: #94b9ff;
 
   letter-spacing: 1px;
-
   margin-bottom: 6px;
 }
 
-
 #galleryCredit {
-
   font-size: 0.95rem;
-
   color: #cccccc;
 }
 
 
-
-/* =========================================================
+/* =========================
    CLOSE BUTTON
-========================================================= */
+   ========================= */
 
 .gallery-close {
-
   position: absolute;
 
   top: 20px;
-
   right: 30px;
 
   background: none;
-
   border: none;
 
-  color: #ffffff;
+  color: white;
 
   font-size: 48px;
-
   line-height: 1;
 
   cursor: pointer;
 
   z-index: 10001;
 
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease;
+  transition: 0.3s ease;
 }
 
-
 .gallery-close:hover {
-
   color: #94b9ff;
-
   transform: scale(1.1);
 }
 
 
-
-/* =========================================================
+/* =========================
    PREVIOUS / NEXT BUTTONS
-========================================================= */
+   ========================= */
 
 .gallery-prev,
 .gallery-next {
-
   position: absolute;
 
   top: 50%;
-
   transform: translateY(-50%);
 
-  background:
-    rgba(0,0,0,0.45);
+  background: rgba(0, 0, 0, 0.45);
 
-  border:
-    2px solid #94b9ff;
+  border: 2px solid #94b9ff;
 
-  color: #ffffff;
+  color: white;
 
   width: 50px;
-
   height: 70px;
 
   border-radius: 8px;
@@ -503,36 +424,96 @@ body {
 
   z-index: 10001;
 
-  transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: 0.3s ease;
 }
 
-
 .gallery-prev {
-
   left: 25px;
 }
 
-
 .gallery-next {
-
   right: 25px;
 }
 
-
 .gallery-prev:hover,
 .gallery-next:hover {
-
   background: #94b9ff;
-
-  color: #000000;
+  color: black;
 
   box-shadow:
-    0 0 20px rgba(148,185,255,0.7);
+    0 0 20px rgba(148, 185, 255, 0.7);
 }
 
+
+/* =========================
+   MOBILE GALLERY
+   ========================= */
+
+@media (max-width: 900px) {
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
+  .gallery img {
+    max-width: 200px;
+    height: 160px;
+  }
+
+  .gallery img:hover {
+    transform: scale(2.3);
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .gallery img {
+    max-width: 170px;
+    height: 140px;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.8);
+  }
+
+  .gallery-modal {
+    padding: 15px;
+  }
+
+  .gallery-lightbox img {
+    max-width: 90vw;
+    max-height: 70vh;
+  }
+
+  .gallery-close {
+    top: 10px;
+    right: 15px;
+    font-size: 40px;
+  }
+
+  .gallery-prev,
+  .gallery-next {
+    width: 40px;
+    height: 55px;
+    font-size: 24px;
+  }
+
+  .gallery-prev {
+    left: 8px;
+  }
+
+  .gallery-next {
+    right: 8px;
+  }
+}
 
 
 /* =========================================================
