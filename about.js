@@ -1,150 +1,100 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  console.log("about.js is connected");
+  const galleryImages = document.querySelectorAll(".gallery img");
+  const modal = document.getElementById("gallery-modal");
+  const modalImage = document.getElementById("gallery-modal-image");
+  const modalCaption = document.getElementById("gallery-modal-caption");
+  const modalCredit = document.getElementById("gallery-modal-credit");
+  const closeButton = document.querySelector(".gallery-modal-close");
 
-  const images = document.querySelectorAll(".arc-gallery img");
-  const modal = document.getElementById("modal");
-  const modalImg = document.getElementById("modal-img");
-  const closeBtn = document.querySelector(".close");
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  const images = document.querySelectorAll(".gallery img");
-
-  const modal = document.getElementById("galleryModal");
-  const modalImage = document.getElementById("galleryModalImage");
-
-  const title = document.getElementById("galleryTitle");
-  const credit = document.getElementById("galleryCredit");
-
-  const closeButton = document.getElementById("galleryClose");
-  const previousButton = document.getElementById("galleryPrev");
-  const nextButton = document.getElementById("galleryNext");
-
-  let currentIndex = 0;
-
-
-  /* =========================
-     SHOW IMAGE
-     ========================= */
-
-  function showImage(index) {
-
-    if (index < 0) {
-      index = images.length - 1;
-    }
-
-    if (index >= images.length) {
-      index = 0;
-    }
-
-    currentIndex = index;
-
-    const image = images[currentIndex];
-
-    modalImage.src = image.src;
-    modalImage.alt = image.alt;
-
-    title.textContent = image.dataset.title || "";
-    credit.textContent = image.dataset.credit || "";
-
+  // Make sure the modal exists before continuing
+  if (!modal || !modalImage) {
+    console.log("Gallery modal elements not found.");
+    return;
   }
 
+  galleryImages.forEach(function (image) {
 
-  /* =========================
-     OPEN GALLERY
-     ========================= */
+    // Make images keyboard accessible
+    image.setAttribute("tabindex", "0");
 
-  images.forEach(function (image, index) {
+    function openGalleryImage() {
 
-    image.addEventListener("click", function () {
+      // Get information stored on the image
+      const imageSrc = image.src;
+      const caption = image.dataset.caption || "";
+      const credit = image.dataset.credit || "";
 
-      currentIndex = index;
+      // Put image information into modal
+      modalImage.src = imageSrc;
+      modalImage.alt = image.alt || "Alianna Waggoner";
 
-      showImage(currentIndex);
+      modalCaption.textContent = caption;
+      modalCredit.textContent = credit ? "Photo: " + credit : "";
 
-      modal.style.display = "flex";
+      // Show modal
+      modal.classList.add("active");
+      document.body.classList.add("modal-open");
+    }
 
-      document.body.style.overflow = "hidden";
+    // Mouse click
+    image.addEventListener("click", openGalleryImage);
 
+    // Keyboard accessibility
+    image.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openGalleryImage();
+      }
     });
 
   });
 
 
-  /* =========================
-     CLOSE GALLERY
-     ========================= */
+  // =========================
+  // CLOSE MODAL
+  // =========================
 
   function closeGallery() {
+    modal.classList.remove("active");
+    document.body.classList.remove("modal-open");
 
-    modal.style.display = "none";
-
-    document.body.style.overflow = "";
-
+    // Clear image after closing
+    setTimeout(function () {
+      modalImage.src = "";
+    }, 300);
   }
 
 
-  closeButton.addEventListener("click", closeGallery);
+  // X button
+  if (closeButton) {
+    closeButton.addEventListener("click", closeGallery);
+  }
 
 
-  /* Click outside image */
-
+  // Click outside the image to close
   modal.addEventListener("click", function (event) {
 
-    if (event.target === modal) {
+    if (
+      event.target === modal ||
+      event.target.classList.contains("gallery-modal-content")
+    ) {
       closeGallery();
     }
 
   });
 
 
-  /* =========================
-     NEXT / PREVIOUS
-     ========================= */
-
-  nextButton.addEventListener("click", function (event) {
-
-    event.stopPropagation();
-
-    showImage(currentIndex + 1);
-
-  });
-
-
-  previousButton.addEventListener("click", function (event) {
-
-    event.stopPropagation();
-
-    showImage(currentIndex - 1);
-
-  });
-
-
-  /* =========================
-     KEYBOARD CONTROLS
-     ========================= */
-
+  // ESC key closes modal
   document.addEventListener("keydown", function (event) {
 
-    if (modal.style.display !== "flex") {
-      return;
-    }
-
-    if (event.key === "Escape") {
+    if (event.key === "Escape" && modal.classList.contains("active")) {
       closeGallery();
-    }
-
-    if (event.key === "ArrowRight") {
-      showImage(currentIndex + 1);
-    }
-
-    if (event.key === "ArrowLeft") {
-      showImage(currentIndex - 1);
     }
 
   });
 
-});
+
+  console.log("Gallery JavaScript loaded successfully.");
 
 });
