@@ -234,41 +234,30 @@ section {
 }
 
 
-/* =========================================
+/* =========================================================
    GALLERY
-   ========================================= */
-
-.gallery-intro {
-  color: #ffffff;
-
-  font-size: 1.1rem;
-
-  margin-bottom: 35px;
-}
-
-
-/*
-   The gallery stays compact on the page.
-   Images enlarge when hovered.
-*/
+   ========================================================= */
 
 .gallery {
   display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(180px, 1fr));
-
-  gap: 22px;
-
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 30px auto 60px;
   align-items: center;
 }
 
+/* Gallery thumbnails */
+
 .gallery img {
   width: 100%;
-
-  height: 190px;
-
+  height: 220px;
   object-fit: cover;
+
+  display: block;
+
+  cursor: pointer;
 
   border-radius: 10px;
 
@@ -278,55 +267,34 @@ section {
     linear-gradient(#000, #000) padding-box,
     linear-gradient(
       135deg,
-      #666666,
       #ffffff,
-      #94b9ff,
+      #c7cbd1,
+      #777d86,
       #ffffff,
-      #666666
+      #94b9ff
     ) border-box;
 
-  cursor: pointer;
-
-  transition:
-    transform 0.35s ease,
-    filter 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.gallery img:hover,
-.gallery img:focus {
-  transform: scale(1.15);
-
-  z-index: 10;
-
-  filter: brightness(1.1);
-
-  box-shadow:
-    0 0 25px rgba(148, 185, 255, 0.8);
-}
-
-/* =========================
-   GALLERY HOVER
-   ========================= */
-
-.gallery img {
-  cursor: pointer;
   transition:
     transform 0.3s ease,
-    filter 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
 }
+
+/* Small hover effect ONLY */
 
 .gallery img:hover {
-  transform: scale(1.08);
-  filter: brightness(1.1);
+  transform: scale(1.04);
+
+  filter: brightness(1.12);
+
   box-shadow:
-    0 0 25px rgba(148, 185, 255, 0.8);
+    0 0 18px rgba(148, 185, 255, 0.7);
 }
 
-/* =========================================
-   LIGHTBOX
-   ========================================= */
+
+/* =========================================================
+   FULL-SCREEN GALLERY POPUP
+   ========================================================= */
 
 .gallery-modal {
   display: none;
@@ -338,48 +306,165 @@ section {
   width: 100%;
   height: 100%;
 
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.94);
 
-  z-index: 9999;
+  z-index: 99999;
 
   align-items: center;
   justify-content: center;
 
-  padding: 40px;
+  padding: 50px 80px;
 }
+
+
+/* JavaScript adds this class */
 
 .gallery-modal.active {
   display: flex;
 }
 
 
-/* =========================================
-   LIGHTBOX CONTENT
-   ========================================= */
+/* =========================================================
+   POPUP CONTENT
+   ========================================================= */
 
 .gallery-lightbox {
-  max-width: 90vw;
+  position: relative;
+
+  width: 100%;
+  max-width: 1200px;
 
   max-height: 90vh;
 
   display: flex;
-
   flex-direction: column;
 
   align-items: center;
-
   justify-content: center;
 }
 
-.gallery-lightbox img {
-  max-width: 82vw;
 
-  max-height: 72vh;
+/* LARGE IMAGE */
+
+.gallery-lightbox img {
+  display: block;
+
+  max-width: 85vw;
+  max-height: 75vh;
 
   width: auto;
   height: auto;
 
   object-fit: contain;
+
+  border-radius: 8px;
+
+  border: 2px solid transparent;
+
+  background:
+    linear-gradient(#000, #000) padding-box,
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #c7cbd1,
+      #777d86,
+      #ffffff,
+      #94b9ff
+    ) border-box;
+
+  box-shadow:
+    0 0 30px rgba(148, 185, 255, 0.45),
+    0 25px 70px rgba(0, 0, 0, 0.9);
+}
+
+
+/* =========================================================
+   CAPTION
+   ========================================================= */
+
+.gallery-caption {
+  text-align: center;
+
+  margin-top: 18px;
+
+  color: #ffffff;
+
+  font-family: Georgia, serif;
+}
+
+
+#galleryTitle {
+  color: #94b9ff;
+
+  font-size: 1.35rem;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 5px;
+}
+
+
+#galleryCredit {
+  color: #cccccc;
+
+  font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   CLOSE X
+   ========================================================= */
+
+.gallery-close {
+  position: fixed;
+
+  top: 20px;
+  right: 30px;
+
+  width: 55px;
+  height: 55px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-size: 48px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 100001;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.gallery-close:hover {
+  color: #94b9ff;
+
+  transform: scale(1.15);
+}
+
+
+/* =========================================================
+   PREVIOUS / NEXT
+   ========================================================= */
+
+.gallery-prev,
+.gallery-next {
+  position: fixed;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 55px;
+  height: 75px;
 
   border-radius: 10px;
 
@@ -389,147 +474,112 @@ section {
     linear-gradient(#000, #000) padding-box,
     linear-gradient(
       135deg,
-      #666666,
       #ffffff,
-      #94b9ff,
-      #ffffff,
-      #666666
+      #aeb3ba,
+      #777d86,
+      #94b9ff
     ) border-box;
 
-  box-shadow:
-    0 0 35px rgba(148, 185, 255, 0.35),
-    0 25px 70px rgba(0, 0, 0, 0.9);
-}
-
-
-/* =========================================
-   CAPTION
-   ========================================= */
-
-.gallery-caption {
-  width: 100%;
-
-  text-align: center;
-
-  margin-top: 18px;
-
-  color: #ffffff;
-}
-
-#galleryTitle {
-  font-size: 1.35rem;
-
-  color: #94b9ff;
-
-  letter-spacing: 1px;
-
-  margin-bottom: 6px;
-}
-
-#galleryCredit {
-  font-size: 0.95rem;
-
-  color: #cccccc;
-}
-
-
-/* =========================================
-   CLOSE BUTTON
-   ========================================= */
-
-.gallery-close {
-  position: absolute;
-
-  top: 20px;
-  right: 30px;
-
-  width: 50px;
-  height: 50px;
-
-  background: transparent;
-
-  border: 2px solid #94b9ff;
-
-  border-radius: 50%;
-
   color: #ffffff;
 
-  font-size: 36px;
-
-  line-height: 40px;
+  font-size: 32px;
 
   cursor: pointer;
 
-  transition: 0.3s ease;
+  z-index: 100001;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.gallery-close:hover {
-  background: #94b9ff;
-
-  color: #000000;
-
-  transform: scale(1.1);
-}
-
-
-/* =========================================
-   PREVIOUS / NEXT
-   ========================================= */
-
-.gallery-prev,
-.gallery-next {
-  position: absolute;
-
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  width: 55px;
-  height: 70px;
-
-  background: linear-gradient(
-    135deg,
-    #666666,
-    #d0d0d0,
-    #ffffff,
-    #999999
-  );
-
-  border: 1px solid #ffffff;
-
-  border-radius: 10px;
-
-  color: #000000;
-
-  font-size: 30px;
-
-  cursor: pointer;
-
-  transition: 0.3s ease;
-
-  z-index: 10001;
-}
 
 .gallery-prev {
-  left: 25px;
+  left: 20px;
 }
 
+
 .gallery-next {
-  right: 25px;
+  right: 20px;
 }
+
 
 .gallery-prev:hover,
 .gallery-next:hover {
-  background: #94b9ff;
+  background:
+    linear-gradient(
+      135deg,
+      #94b9ff,
+      #6f9cf0
+    );
+
+  color: #000000;
 
   box-shadow:
-    0 0 20px rgba(148, 185, 255, 0.8);
-
-  transform:
-    translateY(-50%)
-    scale(1.08);
+    0 0 20px rgba(148, 185, 255, 0.7);
 }
 
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery img {
+    height: 200px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .gallery img {
+    height: 180px;
+  }
+
+  .gallery-modal {
+    padding: 60px 15px 30px;
+  }
+
+  .gallery-lightbox img {
+    max-width: 92vw;
+    max-height: 68vh;
+  }
+
+  .gallery-close {
+    top: 10px;
+    right: 12px;
+    font-size: 40px;
+  }
+
+  .gallery-prev,
+  .gallery-next {
+    width: 42px;
+    height: 55px;
+    font-size: 24px;
+  }
+
+  .gallery-prev {
+    left: 5px;
+  }
+
+  .gallery-next {
+    right: 5px;
+  }
+
+}
 
 /* =========================================
    VIDEOS
