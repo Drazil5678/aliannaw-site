@@ -1,252 +1,373 @@
-```javascript
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* =========================================
-     GALLERY ELEMENTS
-     ========================================= */
-
-  const galleryImages =
-    document.querySelectorAll(".gallery img");
-
-  const modal =
-    document.getElementById("gallery-modal");
-
-  const modalImage =
-    document.getElementById("gallery-modal-image");
-
-  const modalTitle =
-    document.getElementById("galleryTitle");
-
-  const modalCredit =
-    document.getElementById("galleryCredit");
-
-  const closeButton =
-    document.getElementById("gallery-close");
-
-  const previousButton =
-    document.getElementById("gallery-prev");
-
-  const nextButton =
-    document.getElementById("gallery-next");
+  console.log("About page JavaScript loaded.");
 
 
-  /* =========================================
-     CURRENT IMAGE
-     ========================================= */
+  /* =====================================================
+     GALLERY
+     ===================================================== */
 
-  let currentIndex = 0;
+  const galleryImages = Array.from(
+    document.querySelectorAll(".gallery img")
+  );
 
+  const modal = document.getElementById("gallery-modal");
+  const modalImage = document.getElementById("gallery-modal-image");
+  const modalTitle = document.getElementById("galleryTitle");
+  const modalCredit = document.getElementById("galleryCredit");
 
-  /* =========================================
-     OPEN IMAGE
-     ========================================= */
-
-  function openImage(index) {
-
-    if (!galleryImages.length) {
-      return;
-    }
-
-    currentIndex = index;
-
-    const image =
-      galleryImages[currentIndex];
-
-    modalImage.src = image.src;
-
-    modalImage.alt =
-      image.alt || "Alianna Waggoner";
-
-    modalTitle.textContent =
-      image.dataset.caption || "";
-
-    modalCredit.textContent =
-      image.dataset.credit
-        ? "Photo: " + image.dataset.credit
-        : "";
-
-    modal.classList.add("active");
-
-    modal.setAttribute("aria-hidden", "false");
-
-    document.body.style.overflow = "hidden";
-
-  }
+  const closeButton = document.querySelector(".gallery-close");
+  const previousButton = document.querySelector(".gallery-prev");
+  const nextButton = document.querySelector(".gallery-next");
 
 
-  /* =========================================
-     CLOSE IMAGE
-     ========================================= */
+  /*
+     Make sure the gallery exists.
+  */
 
-  function closeImage() {
+  if (
+    galleryImages.length === 0 ||
+    !modal ||
+    !modalImage
+  ) {
 
-    modal.classList.remove("active");
+    console.log("Gallery elements not found.");
 
-    modal.setAttribute("aria-hidden", "true");
+  } else {
 
-    document.body.style.overflow = "";
-
-  }
-
-
-  /* =========================================
-     NEXT IMAGE
-     ========================================= */
-
-  function nextImage() {
-
-    currentIndex++;
-
-    if (currentIndex >= galleryImages.length) {
-      currentIndex = 0;
-    }
-
-    openImage(currentIndex);
-
-  }
+    console.log(
+      "Gallery found:",
+      galleryImages.length,
+      "images"
+    );
 
 
-  /* =========================================
-     PREVIOUS IMAGE
-     ========================================= */
-
-  function previousImage() {
-
-    currentIndex--;
-
-    if (currentIndex < 0) {
-      currentIndex = galleryImages.length - 1;
-    }
-
-    openImage(currentIndex);
-
-  }
+    let currentIndex = 0;
 
 
-  /* =========================================
-     IMAGE CLICK
-     ========================================= */
+    /* =====================================================
+       OPEN IMAGE
+       ===================================================== */
 
-  galleryImages.forEach(function (image, index) {
+    function openGallery(index) {
 
-    image.setAttribute("tabindex", "0");
+      currentIndex = index;
+
+      const image = galleryImages[currentIndex];
+
+      if (!image) {
+        return;
+      }
 
 
-    image.addEventListener("click", function () {
+      /*
+         Set the large image
+      */
 
-      openImage(index);
+      modalImage.src = image.src;
 
-    });
+      modalImage.alt =
+        image.alt || "Alianna Waggoner";
 
 
-    /* Keyboard accessibility */
+      /*
+         Get caption information
+      */
 
-    image.addEventListener("keydown", function (event) {
+      const caption =
+        image.dataset.caption || "";
 
-      if (
-        event.key === "Enter" ||
-        event.key === " "
-      ) {
+      const credit =
+        image.dataset.credit || "";
 
-        event.preventDefault();
 
-        openImage(index);
+      /*
+         Put caption into modal
+      */
+
+      if (modalTitle) {
+        modalTitle.textContent = caption;
+      }
+
+
+      /*
+         Put photo credit into modal
+      */
+
+      if (modalCredit) {
+
+        if (credit) {
+
+          modalCredit.textContent =
+            "Photo: " + credit;
+
+        } else {
+
+          modalCredit.textContent = "";
+
+        }
 
       }
 
+
+      /*
+         Show modal
+      */
+
+      modal.style.display = "flex";
+
+      document.body.classList.add("modal-open");
+
+    }
+
+
+    /* =====================================================
+       CLOSE IMAGE
+       ===================================================== */
+
+    function closeGallery() {
+
+      modal.style.display = "none";
+
+      document.body.classList.remove("modal-open");
+
+    }
+
+
+    /* =====================================================
+       NEXT IMAGE
+       ===================================================== */
+
+    function showNext() {
+
+      currentIndex =
+        (currentIndex + 1) %
+        galleryImages.length;
+
+      openGallery(currentIndex);
+
+    }
+
+
+    /* =====================================================
+       PREVIOUS IMAGE
+       ===================================================== */
+
+    function showPrevious() {
+
+      currentIndex =
+        (currentIndex - 1 + galleryImages.length) %
+        galleryImages.length;
+
+      openGallery(currentIndex);
+
+    }
+
+
+    /* =====================================================
+       IMAGE CLICK EVENTS
+       ===================================================== */
+
+    galleryImages.forEach(function (image, index) {
+
+      /*
+         Keyboard accessibility
+      */
+
+      image.setAttribute("tabindex", "0");
+
+
+      /*
+         Mouse click
+      */
+
+      image.addEventListener("click", function () {
+
+        openGallery(index);
+
+      });
+
+
+      /*
+         Keyboard
+      */
+
+      image.addEventListener("keydown", function (event) {
+
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+
+          event.preventDefault();
+
+          openGallery(index);
+
+        }
+
+      });
+
     });
 
-  });
+
+    /* =====================================================
+       CLOSE BUTTON
+       ===================================================== */
+
+    if (closeButton) {
+
+      closeButton.addEventListener(
+        "click",
+        closeGallery
+      );
+
+    }
 
 
-  /* =========================================
-     BUTTONS
-     ========================================= */
+    /* =====================================================
+       PREVIOUS BUTTON
+       ===================================================== */
 
-  if (closeButton) {
+    if (previousButton) {
 
-    closeButton.addEventListener(
+      previousButton.addEventListener(
+        "click",
+        function (event) {
+
+          event.stopPropagation();
+
+          showPrevious();
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       NEXT BUTTON
+       ===================================================== */
+
+    if (nextButton) {
+
+      nextButton.addEventListener(
+        "click",
+        function (event) {
+
+          event.stopPropagation();
+
+          showNext();
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       CLICK BACKGROUND TO CLOSE
+       ===================================================== */
+
+    modal.addEventListener(
       "click",
-      closeImage
+      function (event) {
+
+        /*
+           Only close when clicking the dark
+           background itself.
+        */
+
+        if (event.target === modal) {
+
+          closeGallery();
+
+        }
+
+      }
     );
+
+
+    /* =====================================================
+       KEYBOARD CONTROLS
+       ===================================================== */
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+
+        /*
+           Don't do anything if modal is closed.
+        */
+
+        if (
+          modal.style.display !== "flex"
+        ) {
+
+          return;
+
+        }
+
+
+        /*
+           ESC = close
+        */
+
+        if (event.key === "Escape") {
+
+          closeGallery();
+
+        }
+
+
+        /*
+           LEFT ARROW = previous
+        */
+
+        if (event.key === "ArrowLeft") {
+
+          showPrevious();
+
+        }
+
+
+        /*
+           RIGHT ARROW = next
+        */
+
+        if (event.key === "ArrowRight") {
+
+          showNext();
+
+        }
+
+      }
+    );
+
 
   }
 
 
-  if (nextButton) {
+  /* =====================================================
+     CONTACT FORM
+     ===================================================== */
 
-    nextButton.addEventListener(
-      "click",
-      nextImage
+  const contactForm =
+    document.querySelector(".contact-form");
+
+
+  if (contactForm) {
+
+    contactForm.addEventListener(
+      "submit",
+      function () {
+
+        console.log(
+          "Contact form submitted."
+        );
+
+      }
     );
 
   }
-
-
-  if (previousButton) {
-
-    previousButton.addEventListener(
-      "click",
-      previousImage
-    );
-
-  }
-
-
-  /* =========================================
-     CLICK OUTSIDE IMAGE
-     ========================================= */
-
-  modal.addEventListener("click", function (event) {
-
-    if (event.target === modal) {
-
-      closeImage();
-
-    }
-
-  });
-
-
-  /* =========================================
-     KEYBOARD CONTROLS
-     ========================================= */
-
-  document.addEventListener("keydown", function (event) {
-
-    if (
-      !modal.classList.contains("active")
-    ) {
-      return;
-    }
-
-
-    if (event.key === "Escape") {
-
-      closeImage();
-
-    }
-
-
-    if (event.key === "ArrowRight") {
-
-      nextImage();
-
-    }
-
-
-    if (event.key === "ArrowLeft") {
-
-      previousImage();
-
-    }
-
-  });
-
-
-  console.log(
-    "Alianna About page JavaScript loaded successfully."
-  );
 
 });
-```
